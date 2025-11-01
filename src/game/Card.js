@@ -1,9 +1,9 @@
-const createCard = (value, suit, rank, image, hidden) => ({
+const createCard = (value, suit, rank, image, visible) => ({
     value,
     suit,
     rank,
     image,
-    hidden,
+    visible,
 });
 
 export default createCard;
