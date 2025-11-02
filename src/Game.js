@@ -5,38 +5,51 @@ import { INVALID_MOVE } from 'boardgame.io/dist/cjs/core.js';
 
 export const Cartilha = {
     setup: () => ({
-        deck: createDeck(), 
-        players: createPlayers, 
-        vira: createCard(null,'','','','',true),
-        handSize : 2,
-        board : []
+        deck: createDeck(),
+        players: createPlayers,
+        vira: createCard(null, '', '', '', '', true),
+        handSize: 2,
+        board: []
     }),
 
-    turn:  {
-    minMoves: 1,
-    maxMoves: 1,
+    turn: {
+        minMoves: 1,
+        maxMoves: 1,
     },
 
     phases: {
         deal: {
             start: true,
-            onBegin: ({G}) => {
+            onBegin: ({ G }) => {
                 G.vira = assignVira(G.deck);
                 empowerCards(G.vira, G.deck);
                 dealCards(G.players, G.deck, G.handSize);
             }
         }
     },
-    
-    moves: {
-        playCard: ({G, playerID},i) => {
-            let playerHand = G.players[playerID].cards;
-            if (i >= 0 && i < playerHand.length) {
-                const [removedCard] = playerHand.splice(i,1);
-                G.board.push(removedCard);
-            }
-        }
 
+    moves: {
+        playCard: ({ G, playerID, ctx }, cardIndex, ownerID) => {
+            //In order to check if player owns the hand it's clicking, you need to check if ownerID is equal to playerID.
+            //But ownerID is a player property which is int. so we cast it as a string to match playerID.
+            if (playerID !== ctx.currentPlayer) {
+                console.log("Invalid: playerID !== ctx.currentPlayer");
+                return INVALID_MOVE;
+            }
+            if (String(ownerID) !== playerID) {
+                console.log("Invalid: ownerID !== playerID");
+                return INVALID_MOVE;
+            }
+
+            const hand = G.players[playerID].cards;
+            if (cardIndex < 0 || cardIndex >= hand.length) {
+                console.log("Invalid: cardIndex < 0 || cardIndex >= hand.length");
+                return INVALID_MOVE;
+            }
+
+            const [playedCard] = hand.splice(cardIndex, 1);
+            G.board.push(playedCard);
+        },
     },
 }
 
@@ -46,7 +59,7 @@ function assignVira(deck) {
     return vira;
 }
 
-function addCardtoPlayerHand (player, card) {
+function addCardtoPlayerHand(player, card) {
     player.cards.push(card);
 }
 
@@ -60,7 +73,7 @@ function dealCards(players, deck, handSize) {
 
     //sort players hands
     players.forEach((player) => {
-        player.cards.sort((a,b) => a.value - b.value);
+        player.cards.sort((a, b) => a.value - b.value);
     })
 }
 
