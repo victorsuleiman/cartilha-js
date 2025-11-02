@@ -44,68 +44,60 @@ import kingOfSpadesImg from './sprites/king_of_spades.png';
 
 import createCard from './Card'
 
-const twoOfDiamonds = createCard(1, 'diamonds', '2', twoOfDiamondsImg, true);
-const twoOfSpades = createCard(2, 'spades', '2', twoOfSpadesImg, true);
-const twoOfHearts = createCard(3, 'hearts', '2', twoOfHeartsImg, true);
-const twoOfClubs = createCard(4, 'clubs', '2', twoOfClubsImg, true);
+const fourOfDiamonds = createCard(1, 'diamonds', '4', '5', fourOfDiamondsImg, true);
+const fourOfSpades = createCard(2, 'spades', '4', '5', fourOfSpadesImg, true);
+const fourOfHearts = createCard(3, 'hearts', '4', '5', fourOfHeartsImg, true);
+const fourOfClubs = createCard(4, 'clubs', '4', '5', fourOfClubsImg, true);
 
-const threeOfDiamonds = createCard(5, 'diamonds', '3', threeOfDiamondsImg, true);
-const threeOfSpades = createCard(6, 'spades', '3', threeOfSpadesImg, true);
-const threeOfHearts = createCard(7, 'hearts', '3', threeOfHeartsImg, true);
-const threeOfClubs = createCard(8, 'clubs', '3', threeOfClubsImg, true);
+const fiveOfDiamonds = createCard(5, 'diamonds', '5', '6', fiveOfDiamondsImg, true);
+const fiveOfSpades = createCard(6, 'spades', '5', '6', fiveOfSpadesImg, true);
+const fiveOfHearts = createCard(7, 'hearts', '5', '6', fiveOfHeartsImg, true);
+const fiveOfClubs = createCard(8, 'clubs', '5', '6', fiveOfClubsImg, true);
 
-const fourOfDiamonds = createCard(9, 'diamonds', '4', fourOfDiamondsImg, true);
-const fourOfSpades = createCard(10, 'spades', '4', fourOfSpadesImg, true);
-const fourOfHearts = createCard(11, 'hearts', '4', fourOfHeartsImg, true);
-const fourOfClubs = createCard(12, 'clubs', '4', fourOfClubsImg, true);
+const sixOfDiamonds = createCard(9, 'diamonds', '6', '7', sixOfDiamondsImg, true);
+const sixOfSpades = createCard(10, 'spades', '6', '7', sixOfSpadesImg, true);
+const sixOfHearts = createCard(11, 'hearts', '6', '7', sixOfHeartsImg, true);
+const sixOfClubs = createCard(12, 'clubs', '6', '7', sixOfClubsImg, true);
 
-const fiveOfDiamonds = createCard(13, 'diamonds', '5', fiveOfDiamondsImg, true);
-const fiveOfSpades = createCard(14, 'spades', '5', fiveOfSpadesImg, true);
-const fiveOfHearts = createCard(15, 'hearts', '5', fiveOfHeartsImg, true);
-const fiveOfClubs = createCard(16, 'clubs', '5', fiveOfClubsImg, true);
+const sevenOfDiamonds = createCard(13, 'diamonds', '7', 'Q', sevenOfDiamondsImg, true);
+const sevenOfSpades = createCard(14, 'spades', '7', 'Q', sevenOfSpadesImg, true);
+const sevenOfHearts = createCard(15, 'hearts', '7', 'Q', sevenOfHeartsImg, true);
+const sevenOfClubs = createCard(16, 'clubs', '7', 'Q', sevenOfClubsImg, true);
 
-const sixOfDiamonds = createCard(17, 'diamonds', '6', sixOfDiamondsImg, true);
-const sixOfSpades = createCard(18, 'spades', '6', sixOfSpadesImg, true);
-const sixOfHearts = createCard(19, 'hearts', '6', sixOfHeartsImg, true);
-const sixOfClubs = createCard(20, 'clubs', '6', sixOfClubsImg, true);
+const queenOfDiamonds = createCard(17, 'diamonds', 'Q', 'J', queenOfDiamondsImg, true);
+const queenOfSpades = createCard(18, 'spades', 'Q', 'J', queenOfSpadesImg, true);
+const queenOfHearts = createCard(19, 'hearts', 'Q', 'J', queenOfHeartsImg, true);
+const queenOfClubs = createCard(20, 'clubs', 'Q', 'J', queenOfClubsImg, true);
 
-const sevenOfDiamonds = createCard(21, 'diamonds', '7', sevenOfDiamondsImg, true);
-const sevenOfSpades = createCard(22, 'spades', '7', sevenOfSpadesImg, true);
-const sevenOfHearts = createCard(23, 'hearts', '7', sevenOfHeartsImg, true);
-const sevenOfClubs = createCard(24, 'clubs', '7', sevenOfClubsImg, true);
+const jackOfDiamonds = createCard(21, 'diamonds', 'J', 'K', jackOfDiamondsImg, true);
+const jackOfSpades = createCard(22, 'spades', 'J', 'K', jackOfSpadesImg, true);
+const jackOfHearts = createCard(23, 'hearts', 'J', 'K', jackOfHeartsImg, true);
+const jackOfClubs = createCard(24, 'clubs', 'J', 'K', jackOfClubsImg, true);
 
-const queenOfDiamonds = createCard(25, 'diamonds', 'Q', queenOfDiamondsImg, true);
-const queenOfSpades = createCard(26, 'spades', 'Q', queenOfSpadesImg, true);
-const queenOfHearts = createCard(27, 'hearts', 'Q', queenOfHeartsImg, true);
-const queenOfClubs = createCard(28, 'clubs', 'Q', queenOfClubsImg, true);
+const kingOfDiamonds = createCard(25, 'diamonds', 'K', 'A', kingOfDiamondsImg, true);
+const kingOfSpades = createCard(26, 'spades', 'K', 'A', kingOfSpadesImg, true);
+const kingOfHearts = createCard(27, 'hearts', 'K', 'A', kingOfHeartsImg, true);
+const kingOfClubs = createCard(28, 'clubs', 'K', 'A', kingOfClubsImg, true);
 
-const jackOfDiamonds = createCard(29, 'diamonds', 'J', jackOfDiamondsImg, true);
-const jackOfSpades = createCard(30, 'spades', 'J', jackOfSpadesImg, true);
-const jackOfHearts = createCard(31, 'hearts', 'J', jackOfHeartsImg, true);
-const jackOfClubs = createCard(32, 'clubs', 'J', jackOfClubsImg, true);
+const aceOfDiamonds = createCard(29, 'diamonds', 'A', '2', aceOfDiamondsImg, true);
+const aceOfSpades = createCard(30, 'spades', 'A', '2', aceOfSpadesImg, true);
+const aceOfHearts = createCard(31, 'hearts', 'A', '2', aceOfHeartsImg, true);
+const aceOfClubs = createCard(32, 'clubs', 'A', '2', aceOfClubsImg, true);
 
-const kingOfDiamonds = createCard(33, 'diamonds', 'K', kingOfDiamondsImg, true);
-const kingOfSpades = createCard(34, 'spades', 'K', kingOfSpadesImg, true);
-const kingOfHearts = createCard(35, 'hearts', 'K', kingOfHeartsImg, true);
-const kingOfClubs = createCard(36, 'clubs', 'K', kingOfClubsImg, true);
+const twoOfDiamonds = createCard(33, 'diamonds', '2', '3', twoOfDiamondsImg, true);
+const twoOfSpades = createCard(34, 'spades', '2', '3', twoOfSpadesImg, true);
+const twoOfHearts = createCard(35, 'hearts', '2', '3', twoOfHeartsImg, true);
+const twoOfClubs = createCard(36, 'clubs', '2', '3', twoOfClubsImg, true);
 
-const aceOfDiamonds = createCard(37, 'diamonds', 'A', aceOfDiamondsImg, true);
-const aceOfSpades = createCard(38, 'spades', 'A', aceOfSpadesImg, true);
-const aceOfHearts = createCard(39, 'hearts', 'A', aceOfHeartsImg, true);
-const aceOfClubs = createCard(40, 'clubs', 'A', aceOfClubsImg, true);
+const threeOfDiamonds = createCard(37, 'diamonds', '3', '4', threeOfDiamondsImg, true);
+const threeOfSpades = createCard(38, 'spades', '3', '4', threeOfSpadesImg, true);
+const threeOfHearts = createCard(39, 'hearts', '3', '4', threeOfHeartsImg, true);
+const threeOfClubs = createCard(40, 'clubs', '3', '4', threeOfClubsImg, true);
 
 const createDeck = () => {
     const cards = []
 
     //Add cards
-    cards.push(twoOfDiamonds);
-    cards.push(twoOfSpades);
-    cards.push(twoOfHearts);
-    cards.push(twoOfClubs);
-    cards.push(threeOfDiamonds);
-    cards.push(threeOfSpades);
-    cards.push(threeOfHearts);
-    cards.push(threeOfClubs);
     cards.push(fourOfDiamonds);
     cards.push(fourOfSpades);
     cards.push(fourOfHearts);
@@ -138,6 +130,14 @@ const createDeck = () => {
     cards.push(aceOfSpades);
     cards.push(aceOfHearts);
     cards.push(aceOfClubs);
+    cards.push(twoOfDiamonds);
+    cards.push(twoOfSpades);
+    cards.push(twoOfHearts);
+    cards.push(twoOfClubs);
+    cards.push(threeOfDiamonds);
+    cards.push(threeOfSpades);
+    cards.push(threeOfHearts);
+    cards.push(threeOfClubs);
 
     //Shuffle
     for (let i = cards.length - 1; i > 0; i -= 1) {

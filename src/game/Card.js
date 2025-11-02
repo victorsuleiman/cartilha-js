@@ -1,7 +1,8 @@
-const createCard = (value, suit, rank, image, visible) => ({
+const createCard = (value, suit, rank, nextRank, image,  visible) => ({
     value,
     suit,
     rank,
+    nextRank,
     image,
     visible,
 });

@@ -5,9 +5,28 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(1, 91, 1);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.playground {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* tweak if you want vertical centering */
+  width: 100%;
+  padding: 16px; /* optional spacing */
+}
+
+.players {
+  flex: 1;
+  margin-right: 24px;
+}
+
+.board {
+  width: 500px; /* or whatever suits your layout */
+  text-align: center; /* optional */
 }
