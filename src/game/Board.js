@@ -1,6 +1,5 @@
 import React from 'react';
-
-//<img src={[player.cards[0].image]} width="80" height="120"></img>
+import { getCardImage } from './Card';
 
 export function CartilhaPlayground({ ctx, G, moves }) {
 
@@ -17,7 +16,7 @@ export function CartilhaPlayground({ ctx, G, moves }) {
                     <img
                         key={`${player.playerID}-${i}`}
                         className="player-card"
-                        src={card.image}
+                        src={getCardImage(card)}
                         width="80"
                         height="120"
                         alt={`${card.rank} of ${card.suit}`}
@@ -36,7 +35,7 @@ export function CartilhaPlayground({ ctx, G, moves }) {
                 {playersDiv}
             </div>
             <div className="board">
-                Vira: <img className="vira" src={G.vira.image} width="80" height="120" alt="Vira" />
+                Vira: <img className="vira" src={G.vira.frontImage} width="80" height="120" alt="Vira" />
             </div>
         </div>
     );
