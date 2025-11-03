@@ -12,7 +12,7 @@ export function CartilhaPlayground({ ctx, G, playerID, moves }) {
             PlayerName: {player.playerName},
             PlayerID: {player.playerID},
             score: {player.score},
-            bet: {player.bet}
+            bets remaining: {player.bet}
             <div className="player-cards">
                 {player.cards.map((card, i) => (
                     <img
@@ -29,6 +29,23 @@ export function CartilhaPlayground({ ctx, G, playerID, moves }) {
         </div>)
     });
 
+    let boardDiv = (
+        <div className="board">
+            Vira: <img className="vira" src={G.vira.frontImage} width="80" height="120" alt="Vira" />
+            <div className="played-cards">
+                Played Cards:
+                {G.board.map((card, i) => (
+                    <img
+                        key={i}
+                        src={getCardImage(card)}
+                        width="80"
+                        height="120"
+                        alt={`${card.rank} of ${card.suit}`}
+                    />
+                ))}
+            </div>
+        </div>
+    )
 
     return (
         <div className="playground">
@@ -36,9 +53,7 @@ export function CartilhaPlayground({ ctx, G, playerID, moves }) {
                 List of Players:
                 {playersDiv}
             </div>
-            <div className="board">
-                Vira: <img className="vira" src={G.vira.frontImage} width="80" height="120" alt="Vira" />
-            </div>
+            {boardDiv}
         </div>
     );
 

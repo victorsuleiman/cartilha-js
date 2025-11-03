@@ -42,8 +42,6 @@ import jackOfSpadesImg from './sprites/jack_of_spades.png';
 import queenOfSpadesImg from './sprites/queen_of_spades.png';
 import kingOfSpadesImg from './sprites/king_of_spades.png';
 
-import hiddenImg from './sprites/red back.png'
-
 import createCard from './Card'
 
 const fourOfDiamonds = createCard(1, 'diamonds', '4', '5', fourOfDiamondsImg);

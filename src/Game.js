@@ -2,6 +2,7 @@ import createDeck from "./game/Deck";
 import createCard from "./game/Card"
 import createPlayers from "./game/Player";
 import { INVALID_MOVE } from 'boardgame.io/dist/cjs/core.js';
+import { TurnOrder } from 'boardgame.io/core';
 
 export const Cartilha = {
     setup: () => ({
@@ -12,44 +13,58 @@ export const Cartilha = {
         board: []
     }),
 
-    turn: {
-        minMoves: 1,
-        maxMoves: 1,
-    },
-
     phases: {
         deal: {
             start: true,
-            onBegin: ({ G }) => {
+            onBegin: ({ G, events }) => {
                 G.vira = assignVira(G.deck);
                 empowerCards(G.vira, G.deck);
                 dealCards(G.players, G.deck, G.handSize);
-            }
-        }
+                events.endPhase();
+            },
+            next: 'play',
+        },
+
+        play: {
+
+            turn: {
+                order: {
+                    first: () => '0',
+                    next: TurnOrder.DEFAULT.next,
+                },
+                minMoves: 1,
+                maxMoves: 1,
+            },
+
+            moves: {
+                playCard: ({ G, playerID, ctx }, cardIndex, ownerID) => {
+                    //In order to check if player owns the hand it's clicking, you need to check if ownerID is equal to playerID.
+                    //But ownerID is a player property which is int. so we cast it as a string to match playerID.
+                    if (playerID !== ctx.currentPlayer) {
+                        console.log("Invalid: playerID !== ctx.currentPlayer");
+                        return INVALID_MOVE;
+                    }
+                    if (String(ownerID) !== playerID) {
+                        console.log("Invalid: ownerID !== playerID");
+                        return INVALID_MOVE;
+                    }
+
+                    const hand = G.players[playerID].cards;
+                    if (cardIndex < 0 || cardIndex >= hand.length) {
+                        console.log("Invalid: cardIndex < 0 || cardIndex >= hand.length");
+                        return INVALID_MOVE;
+                    }
+
+                    const [playedCard] = hand.splice(cardIndex, 1);
+                    G.board.push(playedCard);
+
+                },
+            },
+        },
     },
 
     moves: {
-        playCard: ({ G, playerID, ctx }, cardIndex, ownerID) => {
-            //In order to check if player owns the hand it's clicking, you need to check if ownerID is equal to playerID.
-            //But ownerID is a player property which is int. so we cast it as a string to match playerID.
-            if (playerID !== ctx.currentPlayer) {
-                console.log("Invalid: playerID !== ctx.currentPlayer");
-                return INVALID_MOVE;
-            }
-            if (String(ownerID) !== playerID) {
-                console.log("Invalid: ownerID !== playerID");
-                return INVALID_MOVE;
-            }
 
-            const hand = G.players[playerID].cards;
-            if (cardIndex < 0 || cardIndex >= hand.length) {
-                console.log("Invalid: cardIndex < 0 || cardIndex >= hand.length");
-                return INVALID_MOVE;
-            }
-
-            const [playedCard] = hand.splice(cardIndex, 1);
-            G.board.push(playedCard);
-        },
     },
 }
 
