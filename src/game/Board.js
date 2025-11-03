@@ -1,11 +1,13 @@
 import React from 'react';
 import { getCardImage } from './Card';
 
-export function CartilhaPlayground({ ctx, G, moves }) {
+export function CartilhaPlayground({ ctx, G, playerID, moves }) {
 
+    const viewerID = playerID ?? '0'; // ensure it’s a string, if the value is null prob a spectator
     let playersDiv = [];
-    G.players.forEach(player => {
 
+    G.players.forEach(player => {
+        const isViewer = String(player.playerID) === viewerID;
         playersDiv.push(<div className="player" key={player.playerID}>
             PlayerName: {player.playerName},
             PlayerID: {player.playerID},
@@ -16,11 +18,11 @@ export function CartilhaPlayground({ ctx, G, moves }) {
                     <img
                         key={`${player.playerID}-${i}`}
                         className="player-card"
-                        src={getCardImage(card)}
+                        src={isViewer ? getCardImage(card) : card.backImage}
                         width="80"
                         height="120"
                         alt={`${card.rank} of ${card.suit}`}
-                        onClick={() => moves.playCard(i, player.playerID)}
+                        onClick={() => isViewer && moves.playCard(i, player.playerID)}
                     />
                 ))}
             </div>
